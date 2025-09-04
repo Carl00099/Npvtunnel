@@ -145,6 +145,21 @@ button:hover{
   50%{transform:translateY(20px) scale(1.2);}
   100%{transform:translateY(60px) scale(0);}
 }
+
+/* Sticky ad banner */
+.ad-banner{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:60px;
+  background:rgba(0,0,0,0.8);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+  border-top:2px solid #ff00ff;
+}
 </style>
 </head>
 <body>
@@ -178,6 +193,13 @@ button:hover{
   <div class="drip"></div>
   <div class="drip"></div>
   <div class="drip"></div>
+</div>
+
+<!-- Sticky Ad Banner -->
+<div class="ad-banner">
+  <!-- Ad script goes inside banner -->
+  <script src="https://my.rtmark.net/p.js?f=sync&lr=1&partner=ae6f9da5753002688e571ef03c88e129bf2d56f6495d7b4b90a4cfa2d2b9502a" defer></script>
+  <noscript><img src="https://my.rtmark.net/img.gif?f=sync&lr=1&partner=ae6f9da5753002688e571ef03c88e129bf2d56f6495d7b4b90a4cfa2d2b9502a" width="1" height="1" /></noscript>
 </div>
 
 <script>
