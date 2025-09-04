@@ -146,19 +146,36 @@ button:hover{
   100%{transform:translateY(60px) scale(0);}
 }
 
-/* Sticky ad banner */
-.ad-banner{
+/* Pop-up overlay ad */
+.ad-popup{
   position:fixed;
-  bottom:0;
+  top:0;
   left:0;
   width:100%;
-  height:60px;
+  height:100%;
   background:rgba(0,0,0,0.8);
   display:flex;
   justify-content:center;
   align-items:center;
-  z-index:999;
-  border-top:2px solid #ff00ff;
+  z-index:9999;
+  flex-direction:column;
+}
+.ad-popup-content{
+  background:#111;
+  padding:20px;
+  border-radius:15px;
+  text-align:center;
+  max-width:400px;
+  width:90%;
+}
+.ad-popup button{
+  margin-top:15px;
+  padding:10px 20px;
+  font-weight:bold;
+  background:#ff00ff;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
 }
 </style>
 </head>
@@ -195,11 +212,14 @@ button:hover{
   <div class="drip"></div>
 </div>
 
-<!-- Sticky Ad Banner -->
-<div class="ad-banner">
-  <!-- Ad script goes inside banner -->
-  <script src="https://my.rtmark.net/p.js?f=sync&lr=1&partner=ae6f9da5753002688e571ef03c88e129bf2d56f6495d7b4b90a4cfa2d2b9502a" defer></script>
-  <noscript><img src="https://my.rtmark.net/img.gif?f=sync&lr=1&partner=ae6f9da5753002688e571ef03c88e129bf2d56f6495d7b4b90a4cfa2d2b9502a" width="1" height="1" /></noscript>
+<!-- Pop-up ad overlay -->
+<div class="ad-popup" id="adPopup">
+  <div class="ad-popup-content">
+    <!-- Ad script -->
+    <script src="https://my.rtmark.net/p.js?f=sync&lr=1&partner=ae6f9da5753002688e571ef03c88e129bf2d56f6495d7b4b90a4cfa2d2b9502a" defer></script>
+    <noscript><img src="https://my.rtmark.net/img.gif?f=sync&lr=1&partner=ae6f9da5753002688e571ef03c88e129bf2d56f6495d7b4b90a4cfa2d2b9502a" width="1" height="1" /></noscript>
+    <button id="closeAd">Close Ad</button>
+  </div>
 </div>
 
 <script>
@@ -253,6 +273,12 @@ function createLed(){
   setTimeout(()=>{led.remove();},3000);
 }
 setInterval(createLed,200);
+
+/* Close pop-up ad */
+const adPopup=document.getElementById("adPopup");
+document.getElementById("closeAd").addEventListener("click",()=>{
+  adPopup.style.display="none";
+});
 </script>
 </body>
 </html>
