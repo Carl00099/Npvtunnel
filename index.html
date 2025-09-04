@@ -80,6 +80,7 @@ body{
   backdrop-filter:blur(12px);
   box-shadow:0 0 25px #8000ff,0 0 40px rgba(128,0,255,0.6);
   animation: glowPulse 3s infinite alternate;
+  overflow:hidden;
 }
 @keyframes glowPulse{
   from{box-shadow:0 0 20px #8000ff,0 0 40px rgba(128,0,255,0.4);}
@@ -135,6 +136,25 @@ button:hover{
   color:#fff;
   font-weight:bold;
 }
+
+/* Water drip effect */
+.drip{
+  position:absolute;
+  bottom:-20px;
+  left:50%;
+  width:10px;
+  height:10px;
+  background:#00aaff;
+  border-radius:50%;
+  animation: dripFall 3s infinite;
+}
+.drip:nth-child(2){left:30%;animation-delay:1s;}
+.drip:nth-child(3){left:70%;animation-delay:2s;}
+@keyframes dripFall{
+  0%{transform:translateY(0) scale(1);}
+  50%{transform:translateY(20px) scale(1.2);}
+  100%{transform:translateY(60px) scale(0);}
+}
 </style>
 </head>
 <body>
@@ -169,6 +189,11 @@ button:hover{
   <a id="downloadLink" href="nb.hat" download style="pointer-events:none;opacity:0.5;">
     <button id="downloadBtn" disabled>🔒 Download VPN Config File</button>
   </a>
+
+  <!-- Water Drips -->
+  <div class="drip"></div>
+  <div class="drip"></div>
+  <div class="drip"></div>
 </div>
 
 <script>
@@ -183,10 +208,10 @@ let shares=0;
 shareBtn.addEventListener("click",()=>{
   window.open("https://api.whatsapp.com/send?text=Join%20this%20VPN%20Group%20"+encodeURIComponent(WHATSAPP_GROUP),"_blank");
   shares++;
-  let percent=Math.min(shares*33,100);
+  let percent=Math.min((shares/7)*100,100);
   progressBar.style.width=percent+"%";
-  progressBar.innerText=percent+"%";
-  if(shares>=3){
+  progressBar.innerText=Math.floor(percent)+"%";
+  if(shares>=7){
     progressBar.innerText="✅ Unlocked";
     downloadBtn.disabled=false;
     downloadLink.style.pointerEvents="auto";
