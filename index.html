@@ -4,130 +4,139 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ELONSK VPN STORE</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 <style>
 body {
-    margin:0;
-    font-family: 'Orbitron', sans-serif;
-    background: linear-gradient(135deg,#0f0c29,#302b63,#24243e);
-    color:#fff;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
+  margin:0;
+  font-family:'Orbitron',sans-serif;
+  background: radial-gradient(circle at top, #000010, #111122, #000000);
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  overflow:hidden;
 }
 
 .container {
-    background: rgba(0,0,0,0.3);
-    border-radius: 20px;
-    padding: 40px;
-    text-align:center;
-    width:90%;
-    max-width:600px;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 0 30px #ff0000,0 0 60px rgba(255,0,0,0.3);
+  background: rgba(0,0,0,0.6);
+  border-radius:20px;
+  padding:40px;
+  text-align:center;
+  width:90%;
+  max-width:600px;
+  box-shadow:0 0 25px #00f,0 0 40px #0f0,0 0 60px #f00;
+  backdrop-filter:blur(8px);
 }
 
 h1 {
-    font-size:2rem;
-    margin-bottom:20px;
-    background: linear-gradient(90deg,#ff0000,#ff5555,#ff0000);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    animation: neonGlow 2s infinite alternate;
+  font-size:2rem;
+  margin-bottom:20px;
+  background: linear-gradient(90deg,#0f0,#0ff,#f00,#0f0);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation: glow 2s infinite alternate;
 }
 
-@keyframes neonGlow {
-    0% {text-shadow:0 0 5px #ff0000,0 0 20px #ff5555;}
-    100% {text-shadow:0 0 20px #ff0000,0 0 50px #ff5555;}
+@keyframes glow {
+  from {text-shadow:0 0 10px #0f0,0 0 30px #0ff;}
+  to {text-shadow:0 0 20px #f00,0 0 40px #0f0;}
 }
 
 p {
-    margin:10px 0;
-    font-size:1rem;
+  margin:10px 0;
+  font-size:1rem;
 }
 
 button {
-    padding:12px 25px;
-    font-size:1rem;
-    font-weight:bold;
-    color:#fff;
-    background: linear-gradient(45deg,#ff0000,#ff5555);
-    border:none;
-    border-radius:10px;
-    cursor:pointer;
-    margin:10px 0;
-    transition:0.3s;
-    box-shadow:0 0 10px #ff0000,0 0 30px #ff5555;
+  padding:12px 25px;
+  font-size:1rem;
+  font-weight:bold;
+  color:#fff;
+  background: linear-gradient(45deg,#0f0,#0ff,#f00);
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  margin:10px 0;
+  transition:0.3s;
+  box-shadow:0 0 15px #0f0,0 0 25px #0ff,0 0 35px #f00;
 }
 
 button:hover {
-    background: linear-gradient(45deg,#ff5555,#ff0000);
-    transform: scale(1.05);
-    box-shadow:0 0 20px #ff5555,0 0 40px #ff0000;
+  transform:scale(1.1);
+  background:linear-gradient(45deg,#f00,#0ff,#0f0);
+  box-shadow:0 0 25px #0f0,0 0 35px #0ff,0 0 45px #f00;
 }
 
 .progress-container {
-    width:100%;
-    background: rgba(255,255,255,0.1);
-    border-radius:10px;
-    margin:20px 0;
-    height:25px;
-    overflow:hidden;
-    box-shadow:0 0 10px #ff0000;
+  width:100%;
+  background:rgba(255,255,255,0.1);
+  border-radius:12px;
+  margin:20px 0;
+  height:30px;
+  overflow:hidden;
 }
 
 .progress-bar {
-    height:100%;
-    width:0;
-    background: linear-gradient(90deg,#ff0000,#ff5555);
-    text-align:center;
-    line-height:25px;
-    transition:0.5s;
+  height:100%;
+  width:0;
+  background: linear-gradient(90deg,#0f0,#0ff,#f00);
+  text-align:center;
+  line-height:30px;
+  transition:0.4s;
+  font-size:0.9rem;
+  color:black;
+  font-weight:bold;
 }
 </style>
 </head>
 <body>
 <div class="container">
-    <h1>ELONSK VPN STORE</h1>
-    <p>Website under construction by Zimbabwean developer</p>
-    <p>Contact: +98913 618 6376 ELONSK CONTACT 🇿🇼</p>
-    
-    <!-- WhatsApp Group Button -->
-    <button id="joinGroupBtn">Join WhatsApp Group</button>
+  <h1>ELONSK VPN STORE</h1>
+  <p>Website under construction by Zimbabwean developer 🇿🇼</p>
+  <p>Contact: +98913 618 6376 ELONSK CONTACT</p>
 
-    <!-- Progress Bar -->
-    <div class="progress-container">
-        <div class="progress-bar" id="progressBar">ELONSK</div>
-    </div>
+  <!-- Share Button -->
+  <button id="shareBtn">🔗 Share to WhatsApp Group</button>
 
-    <!-- File Download Button -->
-    <a href="nb.hat" download>
-        <button>Download VPN Config File</button>
-    </a>
+  <!-- Progress -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar">0%</div>
+  </div>
+
+  <!-- Locked Download -->
+  <a id="downloadLink" href="nb.hat" download style="pointer-events:none;opacity:0.5;">
+    <button id="downloadBtn" disabled>🔒 Download VPN Config File</button>
+  </a>
 </div>
 
 <script>
-const progressBar = document.getElementById('progressBar');
-const joinGroupBtn = document.getElementById('joinGroupBtn');
-const WHATSAPP_GROUP = "https://chat.whatsapp.com/CsIWd4gshNAEVKEmC3uSIf?mode=ac_t";
+const progressBar = document.getElementById("progressBar");
+const shareBtn = document.getElementById("shareBtn");
+const downloadBtn = document.getElementById("downloadBtn");
+const downloadLink = document.getElementById("downloadLink");
 
-// Simulate progress loading when "sharing" (demo)
-joinGroupBtn.addEventListener('click', () => {
-    let progress = 0;
-    const interval = setInterval(() => {
-        progress += 10;
-        if(progress > 100) {
-            clearInterval(interval);
-            // Open WhatsApp group after progress finishes
-            window.open(WHATSAPP_GROUP,'_blank');
-            progressBar.style.width = '100%';
-            progressBar.innerText = 'ELONSK ✅';
-            return;
-        }
-        progressBar.style.width = progress + '%';
-        progressBar.innerText = 'ELONSK ' + progress + '%';
-    },500);
+const WHATSAPP_GROUP = "https://chat.whatsapp.com/CsIWd4gshNAEVKEmC3uSIf?mode=ac_t";
+let shares = 0;
+
+shareBtn.addEventListener("click", () => {
+  // open WhatsApp share
+  window.open("https://api.whatsapp.com/send?text=Join%20this%20VPN%20Group%20" + encodeURIComponent(WHATSAPP_GROUP), "_blank");
+
+  // simulate progress
+  shares++;
+  let percent = Math.min(shares * 33, 100);
+  progressBar.style.width = percent + "%";
+  progressBar.innerText = percent + "%";
+
+  // unlock download after 3 shares
+  if(shares >= 3){
+    progressBar.innerText = "✅ Unlocked";
+    downloadBtn.disabled = false;
+    downloadLink.style.pointerEvents = "auto";
+    downloadLink.style.opacity = "1";
+    downloadBtn.innerText = "⬇️ Download VPN Config File";
+  }
 });
 </script>
 </body>
