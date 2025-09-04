@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ELONSK VPN STORE</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body {
+    margin:0;
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.container {
+    background: rgba(0,0,0,0.3);
+    border-radius: 20px;
+    padding: 40px;
+    text-align:center;
+    width:90%;
+    max-width:600px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 30px #ff0000,0 0 60px rgba(255,0,0,0.3);
+}
+
+h1 {
+    font-size:2rem;
+    margin-bottom:20px;
+    background: linear-gradient(90deg,#ff0000,#ff5555,#ff0000);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation: neonGlow 2s infinite alternate;
+}
+
+@keyframes neonGlow {
+    0% {text-shadow:0 0 5px #ff0000,0 0 20px #ff5555;}
+    100% {text-shadow:0 0 20px #ff0000,0 0 50px #ff5555;}
+}
+
+p {
+    margin:10px 0;
+    font-size:1rem;
+}
+
+button {
+    padding:12px 25px;
+    font-size:1rem;
+    font-weight:bold;
+    color:#fff;
+    background: linear-gradient(45deg,#ff0000,#ff5555);
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    margin:10px 0;
+    transition:0.3s;
+    box-shadow:0 0 10px #ff0000,0 0 30px #ff5555;
+}
+
+button:hover {
+    background: linear-gradient(45deg,#ff5555,#ff0000);
+    transform: scale(1.05);
+    box-shadow:0 0 20px #ff5555,0 0 40px #ff0000;
+}
+
+.progress-container {
+    width:100%;
+    background: rgba(255,255,255,0.1);
+    border-radius:10px;
+    margin:20px 0;
+    height:25px;
+    overflow:hidden;
+    box-shadow:0 0 10px #ff0000;
+}
+
+.progress-bar {
+    height:100%;
+    width:0;
+    background: linear-gradient(90deg,#ff0000,#ff5555);
+    text-align:center;
+    line-height:25px;
+    transition:0.5s;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>ELONSK VPN STORE</h1>
+    <p>Website under construction by Zimbabwean developer</p>
+    <p>Contact: +98913 618 6376 ELONSK CONTACT 🇿🇼</p>
+    
+    <!-- WhatsApp Group Button -->
+    <button id="joinGroupBtn">Join WhatsApp Group</button>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar">ELONSK</div>
+    </div>
+
+    <!-- File Download Button -->
+    <a href="nb.hat" download>
+        <button>Download VPN Config File</button>
+    </a>
+</div>
+
+<script>
+const progressBar = document.getElementById('progressBar');
+const joinGroupBtn = document.getElementById('joinGroupBtn');
+const WHATSAPP_GROUP = "https://chat.whatsapp.com/CsIWd4gshNAEVKEmC3uSIf?mode=ac_t";
+
+// Simulate progress loading when "sharing" (demo)
+joinGroupBtn.addEventListener('click', () => {
+    let progress = 0;
+    const interval = setInterval(() => {
+        progress += 10;
+        if(progress > 100) {
+            clearInterval(interval);
+            // Open WhatsApp group after progress finishes
+            window.open(WHATSAPP_GROUP,'_blank');
+            progressBar.style.width = '100%';
+            progressBar.innerText = 'ELONSK ✅';
+            return;
+        }
+        progressBar.style.width = progress + '%';
+        progressBar.innerText = 'ELONSK ' + progress + '%';
+    },500);
+});
+</script>
+</body>
+</html>
