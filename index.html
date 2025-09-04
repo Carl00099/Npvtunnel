@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ELONSK VPN STORE</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
-
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
@@ -19,7 +18,24 @@ body{
   color:#fff;
 }
 
-/* Emoji background */
+/* moving LED sparks */
+@keyframes moveLed {
+  from {transform: translateX(-10vw);}
+  to {transform: translateX(110vw);}
+}
+.led{
+  position:absolute;
+  top:calc(var(--y,50) * 1%);
+  width:2px;
+  height:2px;
+  background:#fff;
+  border-radius:50%;
+  animation: moveLed 2s linear infinite;
+  box-shadow:0 0 6px #fff,0 0 12px #0ff;
+  opacity:0.8;
+}
+
+/* Emoji floating background */
 .emojis{
   position:absolute;
   top:0;left:0;
@@ -31,17 +47,15 @@ body{
 .emoji{
   position:absolute;
   font-size:2rem;
-  animation: fall linear infinite, bounce 2s ease-in-out infinite alternate;
+  animation: floatY 6s ease-in-out infinite;
   text-shadow:2px 4px 6px rgba(0,0,0,0.7);
 }
-@keyframes fall{
-  0%{transform:translateY(-10vh) rotateX(0) rotateY(0);}
-  100%{transform:translateY(110vh) rotateX(360deg) rotateY(360deg);}
-}
-@keyframes bounce{
-  0%{transform:scale(1);}
-  50%{transform:scale(1.2);}
-  100%{transform:scale(1);}
+@keyframes floatY {
+  0%   { transform: translateY(-10vh) rotate(0deg);}
+  25%  { transform: translateY(30vh) rotate(90deg);}
+  50%  { transform: translateY(70vh) rotate(180deg);}
+  75%  { transform: translateY(30vh) rotate(270deg);}
+  100% { transform: translateY(-10vh) rotate(360deg);}
 }
 
 /* Main container glass effect */
@@ -70,7 +84,6 @@ h1{
   color:#fff;
   text-shadow:0 0 10px #ff00ff,0 0 20px #8000ff;
 }
-
 p{margin:10px 0;font-size:1rem;}
 
 /* Buttons */
@@ -136,6 +149,9 @@ button:hover{
 </head>
 <body>
 
+<!-- LED sparks -->
+<div id="leds"></div>
+
 <!-- Emoji background -->
 <div class="emojis" id="emojiContainer"></div>
 
@@ -165,6 +181,7 @@ button:hover{
 </div>
 
 <script>
+/* Progress unlock */
 const progressBar=document.getElementById("progressBar");
 const shareBtn=document.getElementById("shareBtn");
 const downloadBtn=document.getElementById("downloadBtn");
@@ -188,22 +205,32 @@ shareBtn.addEventListener("click",()=>{
   }
 });
 
-/* Emoji rain generator */
+/* Emoji float */
 const emojis=["🔑","🗿","🔥","💧","💣","☁️","🍋","🟩","✈️","🎮","💰","↔️","🐌","🛰","⏲️","✨️"];
 const emojiContainer=document.getElementById("emojiContainer");
-
 function createEmoji(){
   const emoji=document.createElement("div");
   emoji.classList.add("emoji");
   emoji.innerText=emojis[Math.floor(Math.random()*emojis.length)];
   emoji.style.left=Math.random()*100+"vw";
-  emoji.style.animationDuration=(3+Math.random()*5)+"s";
+  emoji.style.animationDuration=(6+Math.random()*6)+"s";
   emoji.style.fontSize=(1+Math.random()*2)+"rem";
   emojiContainer.appendChild(emoji);
-
-  setTimeout(()=>{emoji.remove();},8000);
+  setTimeout(()=>{emoji.remove();},20000);
 }
-setInterval(createEmoji,500);
+setInterval(createEmoji,800);
+
+/* LED sparks */
+const leds=document.getElementById("leds");
+function createLed(){
+  const led=document.createElement("div");
+  led.classList.add("led");
+  led.style.setProperty("--y",Math.random()*100);
+  led.style.animationDuration=(1+Math.random()*2)+"s";
+  leds.appendChild(led);
+  setTimeout(()=>{led.remove();},3000);
+}
+setInterval(createLed,200);
 </script>
 </body>
 </html>
